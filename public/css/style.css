@@ -1,0 +1,82 @@
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container{
+    flex: 1;
+}
+.navbar{
+    height: 3rem;
+    background-color: white;
+}
+.fa-compass{
+    color: #fe424d;
+    font-size: 2rem;
+}
+.nav-link{
+    color: #222222 !important;
+}
+
+.f-info-links a{
+    text-decoration: none;
+    color: #222222;
+}
+
+.f-info-socials{
+    width: 100%;
+    font-size: 1.3rem;
+}
+.f-info{
+    height: 5rem;
+    background-color: #ebebeb;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+    text-align: center;
+}
+
+.listing-card{
+    border: none !important;
+    margin-bottom: 2rem;
+}
+.card-img-top{
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+.card-body{
+    padding: 0;
+}
+.card-text p{
+    font-weight: 400;
+}
+
+.listing-link{
+    text-decoration: none;
+}
+
+.card-img-overlay {
+    opacity: 0;
+    background-color: rgba(255, 255, 255, 1); /* pure white */
+    transition: opacity 0.3s ease;
+}
+
+.card-img-overlay:hover {
+    opacity: 0.2;
+}
+
+.show-img {
+    max-height: 180px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+
+.edit-btn{
+    background-color: #fe424d !important;
+    border: none !important;
+}
