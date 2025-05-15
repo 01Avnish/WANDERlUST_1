@@ -110,7 +110,14 @@ const { request } = require("http");
 const { error } = require('console');
 
 
-
+app.get("/", async (req, res) => {
+    try {
+        const allListings = await Listing.find({});
+        res.render("listings/index.ejs", { allListings });
+    } catch (err) {
+        res.status(500).send("Internal Server Error");
+    }
+});
 
 
 
@@ -136,17 +143,30 @@ app.use("/listings",listingRouter);
 app.use("/listings/:id/reviews",reviewRouter);
 // for user
 app.use("",userRouter);
+app.get("/", async (req, res) => {
+    try {
+        const allListings = await Listing.find({});
+        res.render("listings/index.ejs", { allListings });
+    } catch (err) {
+        res.status(500).send("Internal Server Error");
+    }
+});
+app.get("*", (req, res, next) => {
+    next(new ExpressError("Page Not Found", 404));
+});
+
+app.use((err, req, res, next) => {
+    let{statusCode = 500,message = "this is the error"} = err;
+    // res.status(statusCode).send(message);
+    res.render("error.ejs",{err});
+});
 
 
 
 app.listen(3000, () => {
     console.log("server is listening on port 3000");
 });
-app.use((err, req, res, next) => {
-    let{statusCode = 500,message = "this is the error"} = err;
-    // res.status(statusCode).send(message);
-    res.render("error.ejs",{err});
-});
+
 
 
 
