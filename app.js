@@ -2,8 +2,6 @@ if(process.env.NODE_ENV != "production")
 {
     require('dotenv').config(); 
 } 
-
-
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose"); 
@@ -88,21 +86,6 @@ app.use((req, res, next) => {
     res.locals.currUser = req.user;
     next();
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const listingRouter = require("./routes/listing.js");
 const reviewRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
@@ -110,14 +93,6 @@ const { request } = require("http");
 const { error } = require('console');
 
 
-app.get("/", async (req, res) => {
-    try {
-        const allListings = await Listing.find({});
-        res.render("listings/index.ejs", { allListings });
-    } catch (err) {
-        res.status(500).send("Internal Server Error");
-    }
-});
 
 
 
